@@ -1,8 +1,28 @@
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import Dashboard from './pages/Dashboard';
+import QuizDetail from './pages/QuizDetail';
+import Profile from './pages/Profile';
+import Navbar from './components/Navbar';
+import SolveQuiz from './pages/SolveQuiz';
+
+
 function App() {
   return (
-    <div className="h-screen flex items-center justify-center bg-blue-100">
-      <h1 className="text-3xl font-bold text-red-700">Tailwind is working!</h1>
-    </div>
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/quiz/:id" element={<QuizDetail />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/quiz/:id/solve" element={<SolveQuiz />} />
+
+      </Routes>
+    </Router>
   );
 }
 
