@@ -202,3 +202,19 @@ AUTHENTICATION_BACKENDS = [
 
 
 AUTH_USER_MODEL = 'useraccount.User'
+
+INSTALLED_APPS += ['corsheaders']
+MIDDLEWARE = ['corsheaders.middleware.CorsMiddleware', ...]
+CORS_ALLOW_ALL_ORIGINS = True  # (or use specific origins)
+
+STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+# Add Whitenoise
+MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    ...
+]
+
+# Optional: allow React's domain in production
+CORS_ALLOWED_ORIGINS = ['https://your-react.vercel.app']
